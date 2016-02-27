@@ -6,9 +6,17 @@ use Illuminate\Http\Request;
 
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
+use CodeCommerce\Category;
 
 class AdminCategoriesController extends Controller
 {
+    private $categories;
+
+    public function __construct(Category $category) {
+        $this->categories = $category;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +24,8 @@ class AdminCategoriesController extends Controller
      */
     public function index()
     {
-        //
-        echo 'teste';
+        $allCategories = $this->categories->all();
+        return view('categorias', compact('allCategories'));
     }
 
     /**

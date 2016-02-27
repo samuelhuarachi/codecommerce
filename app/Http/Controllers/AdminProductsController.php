@@ -6,9 +6,18 @@ use Illuminate\Http\Request;
 
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
+use CodeCommerce\Product;
 
 class AdminProductsController extends Controller
 {
+    protected $product;
+
+    public function __construct(Product $product) {
+        $this->product = $product;
+
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +25,8 @@ class AdminProductsController extends Controller
      */
     public function index()
     {
-        //
+        $allProduct = $this->product->all();
+        return view('produtos', compact('allProduct'));
     }
 
     /**
