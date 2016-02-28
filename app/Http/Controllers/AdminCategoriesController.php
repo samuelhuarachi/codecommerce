@@ -6,14 +6,12 @@ use Illuminate\Http\Request;
 
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
-use CodeCommerce\Category;
 
 class AdminCategoriesController extends Controller
 {
-    private $categories;
 
-    public function __construct(Category $category) {
-        $this->categories = $category;
+    public function __construct() {
+
     }
 
 
@@ -22,10 +20,9 @@ class AdminCategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category)
     {
-        $allCategories = $this->categories->all();
-        return view('categorias', compact('allCategories'));
+        return view('categorias', compact('category'));
     }
 
     /**

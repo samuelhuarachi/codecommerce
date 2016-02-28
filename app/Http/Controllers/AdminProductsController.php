@@ -6,16 +6,13 @@ use Illuminate\Http\Request;
 
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
-use CodeCommerce\Product;
 
 class AdminProductsController extends Controller
 {
     protected $product;
 
-    public function __construct(Product $product) {
-        $this->product = $product;
-
-
+    public function __construct() {
+        
     }
 
     /**
@@ -23,10 +20,9 @@ class AdminProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($product)
     {
-        $allProduct = $this->product->all();
-        return view('produtos', compact('allProduct'));
+        return view('produtos', compact('product'));
     }
 
     /**
