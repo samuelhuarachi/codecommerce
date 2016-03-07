@@ -13,6 +13,7 @@
 			<td>Nome</td>
 			<td>Descrição</td>
 			<td>Preço</td>
+			<td>Categoria</td>
 			<td>Opções</td>
 		</tr>
 		
@@ -22,6 +23,8 @@
 				<td>{{ $produtos->name }}</td>
 				<td>{{ $produtos->description }}</td>
 				<td>{{ $produtos->price }}</td>
+				<td>{{ $produtos->category->name }}</td>
+				
 				<td>
 					<a href="{{ route('products.edit', ['id' => $produtos->id]) }}">Edit</a>
 					| <a href="{{ route('products.destroy', ['id' => $produtos->id]) }}">Excluir</a>

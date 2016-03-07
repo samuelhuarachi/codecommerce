@@ -7,6 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     //
-    protected $fillable = ['name', 'description', 'price', 'recommended', 'featured'];
-    
+    protected $fillable = [
+						    'category_id', 
+						    'name', 
+						    'description', 
+						    'price', 
+						    'recommended', 
+						    'featured'
+						  ];
+
+    public function category() {
+    	return $this->belongsTo('CodeCommerce\Category');
+    }
+
 }
