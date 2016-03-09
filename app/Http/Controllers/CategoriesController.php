@@ -24,7 +24,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $allCategories = $this->categoryModel->all();
+        $allCategories = $this->categoryModel->paginate(10);
 
         return view('categorias.index', compact('allCategories'));
     }

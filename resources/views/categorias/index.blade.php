@@ -29,6 +29,7 @@
 		@endforeach
 
 	</table>
+	{!! $allCategories->render() !!}
 </div>
 
 
