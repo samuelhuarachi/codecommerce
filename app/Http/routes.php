@@ -43,9 +43,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 		Route::get('', ['as' => 'products', 'uses' => 'ProductsController@index'] );
 		Route::post('', ['as' => 'products', 'uses' => 'ProductsController@store'] );
 		Route::get('create', ['as' => 'products.create', 'uses' => 'ProductsController@create'] );
-		Route::get('{id}/edit', ['as' => 'products.edit', 'uses' => 'ProductsController@edit'] );
-		Route::put('{id}/update', ['as' => 'products.update', 'uses' => 'ProductsController@update'] );
-		Route::get('{id}/destroy', ['as' => 'products.destroy', 'uses' => 'ProductsController@destroy'] );
+		Route::get('{id}/edit', ['as' => 'products.edit', 'uses' => 'ProductsController@edit'] )->where('id', '[0-9]+');
+		Route::put('{id}/update', ['as' => 'products.update', 'uses' => 'ProductsController@update'] )->where('id', '[0-9]+');
+		Route::get('{id}/destroy', ['as' => 'products.destroy', 'uses' => 'ProductsController@destroy'] )->where('id', '[0-9]+');
 	});
 });
 
