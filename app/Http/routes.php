@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,7 +9,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 
 Route::group(['prefix' => 'maes', 'middleware' => 'auth'], function() {
 	Route::put('{id}/update', ['as' => 'maes.update', 'uses' => 'MaesController@update']);

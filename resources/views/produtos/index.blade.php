@@ -34,6 +34,8 @@
 		@endforeach
 
 	</table>
+
+	{!! $allProdutos->render() !!}
 </div>
 
 
