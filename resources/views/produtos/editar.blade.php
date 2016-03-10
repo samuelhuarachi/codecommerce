@@ -32,11 +32,11 @@
 	</div>
 	<div class="form-group">
 		{!! Form::label('recommended', 'Recommended: ')  !!}
-		{!! Form::checkbox('recommended', $product->recommended)  !!}
+		{!! Form::checkbox('recommended',null, $product->recommended) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('featured', 'Featured: ')  !!}
-		{!! Form::checkbox('featured', $product->featured)  !!}
+		{!! Form::checkbox('featured', null, $product->featured)  !!}
 	</div>
 	<div class="form-group">
 		{!! Form::submit('Save Product', ['class' => 'btn btn-primary']) !!}

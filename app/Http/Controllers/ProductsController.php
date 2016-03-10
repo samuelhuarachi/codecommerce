@@ -31,6 +31,7 @@ class ProductsController extends Controller
 
     public function store(Requests\ProductRequest $request) {
         $input = $request->all();
+
         $product = $this->productModel->fill($input);
         $product->save();
         return redirect()->route('products');
@@ -43,7 +44,12 @@ class ProductsController extends Controller
     }
 
     public function update(Requests\ProductRequest $request, $id) {
-        $this->productModel->find($id)->update($request->all());
+        $input = $request->all();
+        $input['featured'] = $request->get('featured') ? true : false;
+        $input['recommended'] = $request->get('recommended') ? true : false;
+
+        $this->productModel->find($id)->update($input);
+
         return redirect()->route('products');
     }
 
