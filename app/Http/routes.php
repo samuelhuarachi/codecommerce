@@ -44,6 +44,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 		Route::get('{id}/edit', ['as' => 'products.edit', 'uses' => 'ProductsController@edit'] )->where('id', '[0-9]+');
 		Route::put('{id}/update', ['as' => 'products.update', 'uses' => 'ProductsController@update'] )->where('id', '[0-9]+');
 		Route::get('{id}/destroy', ['as' => 'products.destroy', 'uses' => 'ProductsController@destroy'] )->where('id', '[0-9]+');
+
+		Route::group(['prefix' => 'images'], function() {
+			Route::get('{id}/product', ['as' => 'products.images', 'uses' => 'ProductsController@images'] );
+			Route::get('create/{id}/product', ['as' => 'products.images.create', 'uses' => 'ProductsController@createImage'] );
+			Route::post('store/{id}/product', ['as' => 'products.images.store', 'uses' => 'ProductsController@storeImage'] );
+			Route::get('destroy/{id}/product', ['as' => 'products.images.destroy', 'uses' => 'ProductsController@destroyImage'] );
+			
+		});
 	});
 });
 
